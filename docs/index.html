@@ -1,0 +1,190 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-light">
+    <header class="bd-header bg-dark py-3 d-flex align-items-stretch border-bottom border-dark">
+        <div class="container-fluid d-flex align-items-center">
+            <h1 class="d-flex align-items-center fs-4 text-white mb-0">
+                <img src="/docs/5.0/assets/brand/bootstrap-logo-white.svg" width="38" height="30" class="me-3"
+                    alt="Bootstrap">
+                Kubernetes quickstart
+            </h1>
+
+        </div>
+    </header>
+
+
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    What we want to show
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    In this short demo we want to show all pieces for a minimal but fully working webserver on
+                    kubernetes.
+                    <br />
+                    <br />
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-primary">The pieces we will see in here:</li>
+                        <li class="list-group-item">Webcontent as simple html</li>
+                        <li class="list-group-item">A dockerfile putting the content in a server</li>
+                        <li class="list-group-item">The kubernetes stuff</li>
+                        <li class="list-group-item">This on the server</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Build the webcontent
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Building webcontent can be quite a challanging task when you want to put in lots of fancy
+                    frameworks, but for now: <br><strong>KISS: Keep it simple & stupid</strong>
+                    <br />
+                    We just need on file called index.html that contains all our content we want to present <br />
+                    see <code>docs/index.html</code>
+
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Creating our webserver
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    There are lots of webserver on the market. But please don't think now on Websphere, jboss, tomcat
+                    etc. We want to continue with our aproach from above: <strong>KISS</strong>
+                    <br />
+                    <br />
+                    The solution in our case is <code>nginx</code>. Feel free to google what nginx is capable of,
+                    but for our case, lets say its a <strong>simple webserver</strong>. So lets start the setup ... ahh
+                    hold on ... no we don't.
+                    <br />
+                    <br />
+                    In the world of docker / kubernetes we don't need to do a setup, we just say we want to use
+                    it.<br />
+                    <br />
+                    <code>
+                        FROM nginx:latest
+                    </code>
+                    <br />
+                    <br />Server setup done, but we need the content now, so lets add it<br />
+                    <br />
+                    <code>
+                        COPY ./docs/index.html /usr/share/nginx/html/index.html
+                    </code>
+                    <br />
+                    <br />
+                    So now, let the magic begin. What we need now, is the socalled <code>image</code>. For the image we
+                    need to run only one command<br />
+                    <br />
+                    <code>docker build --tag kiss:latest .</code>
+                    <br />
+                    <br />Now we have our image that is called <strong>kiss</strong> and it's the most receason
+                    one. Let's see if this is right<br />
+                    <br />
+                    <code>docker images kiss</code>
+                    <br />
+                    <br />Now we could just run a <code>docker run -p 8081:80 kiss:latest</code> and we would be done
+                    with
+                    the <strong>docker quickstart session</strong>
+                    <br />
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">View more notes</h5>
+                            <p class="card-text">
+                            <ul>
+                                <li>
+                                    adding a <code>--detach</code> would run the server in the background
+                                </li>
+                                <li>the <code>-p 8081:80</code> publish the server on 8081 on this laptop, even the
+                                    actual
+                                    server port is 80
+                                </li>
+                            </ul>
+                            </p>
+                            <a href="https://docs.docker.com/engine/reference/commandline/run/" class="card-link">more
+                                to run</a>
+                            <a href="https://docs.docker.com/engine/reference/commandline/build/" class="card-link">more
+                                to build</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Get it on kubernetes
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Now, let's see what we got so far<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="lime"
+                        class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                    </svg> Webcontent<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="lime"
+                        class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                    </svg> Webserver<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="lime"
+                        class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                    </svg> Dockerimage<br /><br />
+
+                    Now we only need to get it on kubernetes. Therefore we need 2 things if we want to do it kind of
+                    right.
+                    <ul>
+                        <li>
+                            a <code>deployment</code> that runs our image
+                        </li>
+                        <li>a <code>service</code> that shows us how to access it
+                        </li>
+                    </ul>
+                    The <code>deployment</code> can define a awful lot of things, but if you break it down to the core
+                    things you need to start, it's pretty straight forward. Let's have a look at the
+                    <code>deployment.yml</code>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

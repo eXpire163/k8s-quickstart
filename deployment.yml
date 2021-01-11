@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kiss-deployment
+  labels:
+    app: kiss
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kiss
+  template:
+    metadata:
+      labels:
+        app: kiss
+    spec:
+      containers:
+      - name: kiss
+        image: kiss:latest
+        ports:
+        - containerPort: 80
