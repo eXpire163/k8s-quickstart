@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kiss-service
+spec:
+  selector:
+    app: kiss # how to find the container
+  type: NodePort
+  # nodeport: same port on all nodes
+  # cluster ip: just an internal ip
+  # loadbalancer: see ingress / public cloud
+  ports:
+    - port: 80 # internal port for communication inside the namespace
+      targetPort: 80 # container port
+      nodePort: 30080 # port we need for external access
