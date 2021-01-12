@@ -3,12 +3,12 @@ kind: Deployment
 metadata:
   name: kiss-deployment
   labels:
-    app: kiss
+    app: kiss # required for finding it from the service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kiss
+      app: kiss # which container to use (there could be more than one)
   template:
     metadata:
       labels:
@@ -16,7 +16,10 @@ spec:
     spec:
       containers:
       - name: kiss
-        image: kiss:1
+        image: demo/kiss
         ports:
         - containerPort: 80
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Never
+        env: # sample on how to set enviroment variables for the webserver (not working)
+        - name: log_level
+          value: "debug"
