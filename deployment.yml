@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - name: kiss
-        image: kiss:latest
+        image: kiss:1
         ports:
         - containerPort: 80
+        imagePullPolicy: IfNotPresent
