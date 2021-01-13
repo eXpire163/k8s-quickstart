@@ -55,7 +55,6 @@
                         <li class="list-group-item">Webcontent as simple html</li>
                         <li class="list-group-item">A dockerfile putting the content in a server</li>
                         <li class="list-group-item">The kubernetes stuff</li>
-                        <li class="list-group-item">This on the server</li>
                         <li class="list-group-item">CI / CD</li>
                     </ul>
                 </div>
@@ -75,7 +74,8 @@
                     Building webcontent can be quite a challanging task when you want to put in lots of fancy
                     frameworks, but for now: <br><strong>KISS: Keep it simple & stupid</strong>
                     <br />
-                    We just need on file called index.html that contains all our content we want to present <br />
+                    We just need one file called index.html that contains all our content we want to present and a view
+                    images <br />
                     see <code>docs/index.html</code>
 
                 </div>
@@ -92,8 +92,8 @@
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    There are lots of webserver on the market. But please don't think now on Websphere, jboss, tomcat
-                    etc. We want to continue with our aproach from above: <strong>KISS</strong>
+                    There are lots of webservers on the market. But please don't think now about Websphere, jboss,
+                    tomcat etc. We want to continue with our aproach from above: <strong>KISS</strong>
                     <br />
                     <br />
                     The solution in our case is <code>nginx</code>. Feel free to google what nginx is capable of,
@@ -122,7 +122,7 @@
                     <br /><br />
                     <img src="images/docker-build.gif" alt="docker-build" />
                     <br />
-                    <br />Now we have our image that is called <strong>kiss</strong> and it's the most receason
+                    <br />Now we have our image that is called <strong>kiss</strong> and it's the most recent
                     one. Let's see if this is right<br />
                     <br />
                     <code>docker images kiss</code>
@@ -138,9 +138,8 @@
                                 <li>
                                     adding a <code>--detach</code> would run the server in the background
                                 </li>
-                                <li>the <code>-p 8081:80</code> publish the server on 8081 on this laptop, even the
-                                    actual
-                                    server port is 80
+                                <li>the <code>-p 8081:80</code> publish the server on 8081 on this laptop, although the
+                                    actual server port is 80
                                 </li>
                             </ul>
                             </p>
@@ -184,20 +183,20 @@
                     <code>deployment.yml</code>
                     <br /><br />
                     The <code>service</code> is required to let kubernetes know what it needs to wire together. Let's
-                    have a look at the <code>deployment.yml</code>
+                    have a look at the <code>service.yml</code>
                     <br /><br />
                     Now as we know what we want to put on kubernetes, lets explore one way to do it. As we already build
                     the yml files, we can directly apply them to our cluster.
                     <br /><br />
                     <code>kubectl apply -f .</code>
                     <br /><br />
-                    The -f sais we want to deploy a file, but you can also select the hole directory, and kubernetes
+                    The -f sais we want to deploy a file, but you can also select the whole directory, and kubernetes
                     will check what is actually a kubernetes yaml and then deploys them.
                     <br /><br />
-                    Know it would be great to know what is happening on the server.
+                    Now it would be great to know what is happening on the server.
                     <code>kubectl get deployments</code> shows us all deployments on the server (in the current
                     namespace). Depending on the version of your setup, other words also work like "deploy" as a short
-                    cut or deployments.apps as a full qualified resource definition.<br />
+                    cut or deployments.apps as a fully qualified resource definition.<br />
                     <code>kubectl get pods</code> shows us all "containers" that are running or should be running<br />
                     <code>kubectl get pods | grep kiss</code> shows us all "containers" that contain somewhere
                     "kiss" <br />
