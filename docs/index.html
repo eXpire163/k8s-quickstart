@@ -71,7 +71,7 @@
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    Building webcontent can be quite a challanging task when you want to put in lots of fancy
+                    Building webcontent can be quite a challenging task when you want to put in lots of fancy
                     frameworks, but for now: <br><strong>KISS: Keep it simple & stupid</strong>
                     <br />
                     We just need one file called index.html that contains all our content we want to present and a view
@@ -93,11 +93,11 @@
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     There are lots of webservers on the market. But please don't think now about Websphere, jboss,
-                    tomcat etc. We want to continue with our aproach from above: <strong>KISS</strong>
+                    tomcat etc. We want to continue with our approach from above: <strong>KISS</strong>
                     <br />
                     <br />
                     The solution in our case is <code>nginx</code>. Feel free to google what nginx is capable of,
-                    but for our case, lets say its a <strong>simple webserver</strong>. So lets start the setup ... ahh
+                    but for our case, lets say its a <strong>simple webserver</strong>. So let's start the setup ... ahh
                     hold on ... no we don't.
                     <br />
                     <br />
@@ -108,7 +108,7 @@
                         FROM nginx:latest
                     </code>
                     <br />
-                    <br />Server setup done, but we need the content now, so lets add it<br />
+                    <br />Server setup done, but we need the content now, so let's add it<br />
                     <br />
                     <code>
                         COPY ./docs/index.html /usr/share/nginx/html/index.html
@@ -169,7 +169,7 @@
                     <i class="bi-check-circle-fill" style="color: limegreen;"></i> Webserver<br />
                     <i class="bi-check-circle-fill" style="color: limegreen;"></i> Dockerimage<br /><br />
 
-                    Now we only need to get it on kubernetes. Therefore we need 2 things if we want to do it kind of
+                    Now we only need to get it on kubernetes. Therefore, we need 2 things if we want to do it kind of
                     right.
                     <ul>
                         <li>
@@ -190,7 +190,7 @@
                     <br /><br />
                     <code>kubectl apply -f .</code>
                     <br /><br />
-                    The -f sais we want to deploy a file, but you can also select the whole directory, and kubernetes
+                    The -f says we want to deploy a file, but you can also select the whole directory, and kubernetes
                     will check what is actually a kubernetes yaml and then deploys them.
                     <br /><br />
                     Now it would be great to know what is happening on the server.
@@ -222,7 +222,7 @@
             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    As you don't want to run everything by hand every time, lets get some <code>CI / CD</code>!! <br />
+                    As you don't want to run everything by hand every time, let's get some <code>CI / CD</code>!! <br />
                     <br />
                     Scary??
                     <br />
