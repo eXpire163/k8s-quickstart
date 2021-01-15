@@ -34,6 +34,36 @@
 
     <!-- have the accordion ui -->
     <div class="accordion" id="accordionExample">
+        <!-- zero -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingZero">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseZero"
+                    aria-expanded="true" aria-controls="collapseZero">
+                    Ways to get started
+                </button>
+            </h2>
+            <div id="collapseZero" class="accordion-collapse collapse show" aria-labelledby="headingZero"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    There are multiple ways to get running with docker and kubernetes. But you can drill it down to 3
+                    major areas:
+                    <br />
+                    <br />
+
+                    <ul class="list-group">
+                        <li class="list-group-item">On bare metal (from raspberry pi to server farm)</li>
+                        <li class="list-group-item">On a virtual machine (managed: use docker for desktop, unmanaged:
+                            get started with a linux vm)</li>
+                        <li class="list-group-item">On the cloud <br />lab: <a
+                                href="https://kubernetes.io/docs/tutorials/hello-minikube/">minikube on katacoda</a> or
+                            <a href="https://labs.play-with-k8s.com/">play with k8s</a>
+
+                        </li>
+                        <li class="list-group-item">CI / CD</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <!-- one -->
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
