@@ -52,7 +52,7 @@
 
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-primary">The pieces we will see in here:</li>
-                        <li class="list-group-item">Webcontent as simple html</li>
+                        <li class="list-group-item">Web content as simple html</li>
                         <li class="list-group-item">A dockerfile putting the content in a server</li>
                         <li class="list-group-item">The kubernetes stuff</li>
                         <li class="list-group-item">CI / CD</li>
@@ -65,13 +65,13 @@
             <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Build the webcontent
+                    Build the web content
                 </button>
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    Building webcontent can be quite a challenging task when you want to put in lots of fancy
+                    Building web content can be quite a challenging task when you want to put in lots of fancy
                     frameworks, but for now: <br><strong>KISS: Keep it simple & stupid</strong>
                     <br />
                     We just need one file called index.html that contains all our content we want to present and a view
@@ -92,7 +92,7 @@
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    There are lots of webservers on the market. But please don't think now about Websphere, jboss,
+                    There are lots of webserver on the market. But please don't think now about Websphere, jboss,
                     tomcat etc. We want to continue with our approach from above: <strong>KISS</strong>
                     <br />
                     <br />
@@ -115,7 +115,7 @@
                     </code>
                     <br />
                     <br />
-                    So now, let the magic begin. What we need now, is the socalled <code>image</code>. For the image we
+                    So now, let the magic begin. What we need now, is the so called <code>image</code>. For the image we
                     need to run only one command<br />
                     <br />
                     <code>docker build --tag kiss:latest .</code>
@@ -165,9 +165,9 @@
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     Now, let's see what we got so far<br />
-                    <i class="bi-check-circle-fill" style="color: limegreen;"></i> Webcontent<br />
+                    <i class="bi-check-circle-fill" style="color: limegreen;"></i> Web content<br />
                     <i class="bi-check-circle-fill" style="color: limegreen;"></i> Webserver<br />
-                    <i class="bi-check-circle-fill" style="color: limegreen;"></i> Dockerimage<br /><br />
+                    <i class="bi-check-circle-fill" style="color: limegreen;"></i> Docker image<br /><br />
 
                     Now we only need to get it on kubernetes. Therefore, we need 2 things if we want to do it kind of
                     right.
@@ -205,7 +205,7 @@
 
 
                     <br /><br />
-                    <img src="images/kube-apply.gif" alt="kube-apply" />
+                    <img src="images/kube-apply.gif" alt="kubectl-apply" />
 
 
                 </div>
@@ -228,6 +228,69 @@
                     <br />
                     <br />
                     Let's have a look at our local ci/cd in <code>update.sh</code>
+                </div>
+            </div>
+        </div>
+        <!-- six -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    What's next
+                </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    If you enjoined the quickstart, please like and subscribe ;) <br /><br />
+                    Bit more serious, there are multiple ways to continue.
+                    <br /><br />
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Direction</th>
+                                <th scope="col">Way</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Better understanding of Docker</td>
+                                <td>Have a look at the official docker <a
+                                        href="https://training.play-with-docker.com/">training</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Better understanding of Kubernetes</td>
+                                <td>Have a look at the official kubernetes <a
+                                        href="https://kubernetes.io/de/docs/tutorials/kubernetes-basics/">basics</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Kubernetes on AWS</td>
+                                <td>Complete the intro and beginner section of the <a
+                                        href="https://www.eksworkshop.com/">eks
+                                        workshop</a>, my <i class="bi bi-star-fill" style="color: limegreen;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Kubernetes @ home / on edge</td>
+                                <td>Get kubernetes on a raspberry pi with <a href="https://k3s.io/">k3s</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Run a multi part solution on k8s</td>
+                                <td>The most used sample is <a
+                                        href="https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/">WordPress
+                                        with MySQL</a> as your first <strong>real scenario</strong>. Make sure you are
+                                    feeling comfortable with the pieces shown in the quickstart, otherwise there will be
+                                    to many new things at ones.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+
+
                 </div>
             </div>
         </div>
