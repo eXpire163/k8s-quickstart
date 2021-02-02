@@ -1,6 +1,6 @@
 # build image
 docker build --tag demo/kiss .
-# remove old stuff
+# remove old stuff (only sometimes required on docker for windows)
 kubectl delete -f .
 # deploy image
 kubectl apply -f .

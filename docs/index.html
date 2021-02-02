@@ -52,12 +52,12 @@
 
                     <ul class="list-group">
                         <li class="list-group-item">On bare metal (from raspberry pi to server farm)</li>
-                        <li class="list-group-item">On a virtual machine (managed: use docker for desktop, unmanaged:
+                        <li class="list-group-item">On a virtual machine (managed: use docker for desktop, minikube
+                            unmanaged:
                             get started with a linux vm)</li>
-                        <li class="list-group-item">On the cloud <br />lab: <a
+                        <li class="list-group-item">On the cloud (e.g.<a
                                 href="https://kubernetes.io/docs/tutorials/hello-minikube/">minikube on katacoda</a> or
-                            <a href="https://labs.play-with-k8s.com/">play with k8s</a>
-
+                            <a href="https://labs.play-with-k8s.com/">play with k8s</a> )
                         </li>
                     </ul>
                 </div>
@@ -66,8 +66,8 @@
         <!-- one -->
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="false" aria-controls="collapseOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                     What we want to show
                 </button>
             </h2>
@@ -147,16 +147,17 @@
                     So now, let the magic begin. What we need now, is the so called <code>image</code>. For the image we
                     need to run only one command<br />
                     <br />
-                    <code>docker build --tag kiss:latest .</code>
+                    <code>docker build --tag demo/kiss .</code>
                     <br /><br />
                     <img src="images/docker-build.gif" alt="docker-build" />
                     <br />
                     <br />Now we have our image that is called <strong>kiss</strong> and it's the most recent
                     one. Let's see if this is right<br />
                     <br />
-                    <code>docker images kiss</code>
+                    <code>docker images demo/kiss</code>
                     <br />
-                    <br />Now we could just run a <code>docker run -p 8081:80 kiss:latest</code> and we would be done
+                    <br />Now we could just run a <code>docker run -p 8081:80 demo/kiss:latest</code> and we would be
+                    done
                     with the <strong>docker quickstart session</strong>
                     <br />
                     <div class="card" style="width: 22rem;">
@@ -236,6 +237,9 @@
                     <br /><br />
                     <img src="images/kube-apply.gif" alt="kubectl-apply" />
 
+                    <br /><br />
+                    Finally we can also have a look at the live logs on kubernetes inside our pod:<br />
+                    <code>kubectl logs -f kiss-deployment-74745f88d-lqjgf</code>
 
                 </div>
             </div>
