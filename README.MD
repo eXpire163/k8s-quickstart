@@ -18,4 +18,4 @@ Have a look at the [guide](https://expire163.github.io/k8s-quickstart/index.html
 
 ## Target group
 
-If you are a person with a tech background / history and you always wanted to start with docker or kubernetes but found it intimidating with all the stuff you need and all these wired works around it.
+If you have a tech background / history and you always wanted to start with docker or kubernetes but found it intimidating with all the stuff you need and all these wired works around it.
